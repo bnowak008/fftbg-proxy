@@ -14,6 +14,8 @@ app.use(
 
 app.use(express.static('public'));
 
+app.get('/health', (req: Request, res: Response) => res.send('OK'));
+
 app.get('/api/tournaments', async (req: Request, res: Response) => {
   const resp = await (await fetch('https://fftbg.com/api/tournaments?limit=1')).json();
 
