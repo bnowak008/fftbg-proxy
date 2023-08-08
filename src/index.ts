@@ -1,13 +1,13 @@
 import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
 
-import { cors_origin } from './config'
+import { PORT, CORS_ORIGIN } from './config'
 
 const app: Express = express();
 
 app.use(
   cors({
-    origin: cors_origin,
+    origin: CORS_ORIGIN,
     credentials: true
   })
 );
@@ -34,8 +34,8 @@ app.get('/api/tips', async (req: Request, res: Response) => {
   res.json(resp);
 });
 
-const server = app.listen(3003, () => {
-  console.log('Listening on port 3003');
+const server = app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });
 
 
